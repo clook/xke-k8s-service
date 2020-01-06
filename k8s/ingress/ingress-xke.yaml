@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   name: hello-xke
   namespace: hello-xke
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   rules:
   - host: xke.xebia.allowed.org
@@ -12,3 +14,7 @@ spec:
         backend:
           serviceName: hello-xke
           servicePort: 8080
+  tls:
+  - hosts:
+    - xke.xebia.allowed.org
+    secretName: hello-xke-cert-tls

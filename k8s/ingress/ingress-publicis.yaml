@@ -5,6 +5,7 @@ metadata:
   namespace: hello-xke
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   rules:
   - host: publicis.allowed.org
@@ -14,3 +15,7 @@ spec:
         backend:
           serviceName: hello-publicis
           servicePort: 8080
+  tls:
+  - hosts:
+    - publicis.allowed.org
+    secretName: hello-publicis-cert-tls
