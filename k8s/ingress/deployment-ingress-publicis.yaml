@@ -7,7 +7,7 @@ metadata:
     app.kubernetes.io/name: go-hello-world
     app.kubernetes.io/instance: for-an-ingress-publicis
 spec:
-  replicas: 3
+  replicas: 8
   selector:
     matchLabels:
       app.kubernetes.io/name: go-hello-world
