@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-nodeport
+  namespace: hello-xke
+spec:
+  selector:
+    app.kubernetes.io/name: go-hello-world
+    app.kubernetes.io/instance: for-a-service
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+    nodePort: 31042
+  type: NodePort

@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: hello-xke
+  namespace: hello-xke
+spec:
+  rules:
+  - host: xke.xebia.allowed.org
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: hello-xke
+          servicePort: 8080
